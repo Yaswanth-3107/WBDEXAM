@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+.bodyregister{
+  margin: 20;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background: rgb(255, 255, 255);
+  margin-left: auto;
+
+}
+
+.container8{
+    
+ 
+  max-width: 1000px;
+  max-height:1000px;
+  height:105%;
+  width: 100%;
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+  
+}
+.container8 .title{
+  font-size: 50px;
+  font-weight: 500;
+  position: relative;
+}
+#but{
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-grow: 1;
+}
+.container8 .title::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  border-radius: 5px;
+  background: green;
+}
+.content form .user-details{
+  display: block;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0 12px 0;
+}
+form .user-details .input-box{
+  margin-bottom: 15px;
+  width: calc(100% / 2 - 20px);
+}
+form .input-box span.details{
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+
+.user-details .input-box input{
+  height: 40px;
+  width: 400px;
+  display: inline-block;
+  vertical-align: top;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+  border-color: #f1f1f1;
+}
+ 
+ form .category{
+   display: block;
+   width: 80%;
+   margin: 14px 0 ;
+   justify-content: space-between;
+ }
+ form .category label{
+   display: block;
+   align-items: center;
+   cursor: pointer;
+ }
+ form .category label .dot{
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background: #d9d9d9;
+  border: 5px solid transparent;
+  transition: all 0.3s ease;
+}
+ #dot-1:checked ~ .category label .one,
+ #dot-2:checked ~ .category label .two,
+ #dot-3:checked ~ .category label .three{
+   background: #ffffff;
+   border-color: #d9d9d9;
+ }
+ form input[type="radio"]{
+   display: none;
+ }
+
+ 
+ form .button{
+    display: flex;
+  justify-content: flex-start;
+   height: 45px;
+   margin: 20px 0
+ }
+ form .button input{
+   height: 90%;
+   width: 10%;
+   border-radius: 5px;
+   border: none;
+   color: #fff;
+   font-size: 18px;
+   font-weight: 500;
+   letter-spacing: 1px;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   background:green;
+ }
+ form .button input:hover{
+  
+  background: black;
+  }
+ @media(max-width: 584px){
+ .container{
+  max-width: 100%;
+}
+form .user-details .input-box{
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  form .category{
+    width: 100%;
+  }
+  .content form .user-details{
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+  .user-details::-webkit-scrollbar{
+    width: 5px;
+  }
+  }
+  @media(max-width: 459px){
+  .container8 .content .category{
+    flex-direction: column;
+  }
+}
+
+.upload-pic {
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: 0;
+  /* add the following properties */
+  position: absolute;
+  top: 25%;
+  right: 10%;}
+  
+  .upload-pic label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .upload-pic input[type="file"] {
+    margin-bottom: 10px;
+  }
+  
+  .upload-pic button {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #0077b6;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .upload-pic button:hover {
+    background-color: #023e8a;
+  }
+  .user-details {
+    width:60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start; /* add this line */
+  }
+  
+  .user-details .input-box {
+    margin-bottom: 15px;
+    width: calc(50% - 10px); /* change width to 50% */
+  }
+  
+  .user-details .input-box:nth-child(2n+1) { /* add this block */
+    margin-right: 20px;
+  }
+  
+  .upload-pic {
+    position: absolute; /* set an absolute position to move the upload-pic division to the right side */
+    top: 25%; /* adjust the top position */
+    right: 0; /* set the right position to 0*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    width: 60%; /* change width to 40% */
+    margin-left: auto;
+    margin-right: 0;
+  }
+  
+.profile-pic {
+    height: 200px;
+    width: 1500px;
+    flex: 1 1 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .pic-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .full-box{
+    display:flex;
+  }
