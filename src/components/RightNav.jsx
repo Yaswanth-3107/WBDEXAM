@@ -5,7 +5,7 @@ import { HiMenuAlt3 } from "react-icons/hi";
 import { MdSearch } from "react-icons/md";
 import { RiSettings4Line } from "react-icons/ri";
 import { Link } from "react-router-dom";
-const RightNav = ({handleRes, handleUnres,handleStatistics,clickOnInbox,clickOnprofile,clickOnResolved }) => {
+const RightNav = ({ handleRes, handleUnres, handleStatistics, clickOnInbox, clickOnprofile, clickOnResolved, handleprofile }) => {
 
   const logout = () => {
     localStorage.removeItem("loginData");
@@ -13,21 +13,21 @@ const RightNav = ({handleRes, handleUnres,handleStatistics,clickOnInbox,clickOnp
     window.location.href = "/";
   };
   let menus = [
-    { name: "Profile", link: "/user", icon: AiOutlineUser,click: clickOnprofile },
+    { name: "Profile", link: "/user", icon: AiOutlineUser, click: clickOnprofile },
     { name: "Create Complaint", link: "/complaints", icon: FiMessageSquare },
     { name: "Registered complaints", link: "/user", icon: FiInbox, click: clickOnInbox },
-    { name: "Resolved Complaints", link: "/user", icon : FiInbox,click : clickOnResolved  },
-    { name: "Logout", link: "/", icon: FiLogOut, margin: true,click:logout },
-    
+    { name: "Resolved Complaints", link: "/user", icon: FiInbox, click: clickOnResolved },
+    { name: "Logout", link: "/", icon: FiLogOut, margin: true, click: logout },
+
   ];
   const user = JSON.parse(localStorage.getItem("loginData"));
-  if(user.isCreatedByAdmin){
+  if (user.isCreatedByAdmin) {
     menus = [
-      { name: "Profile", link: "/dept", icon: AiOutlineUser,click: clickOnprofile },
-      { name : "Resolved Complaints", link: "/dept", icon: FiThumbsUp,click : handleRes },
-      {name : "Unresolved Complaints", link: "/dept", icon: FiThumbsDown,click : handleUnres },
-      {name : "Statistics", link: "/dept", icon:FiPieChart,click : handleStatistics },
-      { name: "Logout", link: "/", icon: FiLogOut, margin: true,click:logout },
+      { name: "Profile", link: "/dept", icon: AiOutlineUser, click: handleprofile },
+      { name: "Resolved Complaints", link: "/dept", icon: FiThumbsUp, click: handleRes },
+      { name: "Unresolved Complaints", link: "/dept", icon: FiThumbsDown, click: handleUnres },
+      { name: "Statistics", link: "/dept", icon: FiPieChart, click: handleStatistics },
+      { name: "Logout", link: "/", icon: FiLogOut, margin: true, click: logout },
 
     ]
   }
@@ -49,11 +49,9 @@ const RightNav = ({handleRes, handleUnres,handleStatistics,clickOnInbox,clickOnp
   }, []);
   return (
     <div
-      className={`border-r-2 border-gray-500  bg-[green] min-h-screen ${
-        open ? "w-72" : "w-16"
-      } duration-500 text-gray-100 px-4 ${
-        screenWidth < 640 ? "fixed bottom-0 left-0 w-full" : "relative"
-      }`}
+      className={`border-r-2 border-gray-500  bg-[green] min-h-screen ${open ? "w-72" : "w-16"
+        } duration-500 text-gray-100 px-4 ${screenWidth < 640 ? "fixed bottom-0 left-0 w-full" : "relative"
+        }`}
     >
       <div className="py-3 flex justify-end">
         <HiMenuAlt3
@@ -68,26 +66,23 @@ const RightNav = ({handleRes, handleUnres,handleStatistics,clickOnInbox,clickOnp
             onClick={menu?.click}
             to={menu?.link}
             key={i}
-            className={` ${
-              menu?.margin && "mt-5"
-            } group flex items-center text-md  gap-3.5 font-bold p-2 hover:bg-gray-800 rounded-md`}
+            className={` ${menu?.margin && "mt-5"
+              } group flex items-center text-md  gap-3.5 font-bold p-2 hover:bg-gray-800 rounded-md`}
           >
             <div>{React.createElement(menu?.icon, { size: "25" })}</div>
             <h2
               style={{
                 transitionDelay: `${i + 3}00ms`,
               }}
-              className={`whitespace-pre duration-500 ${
-                !open &&
+              className={`whitespace-pre duration-500 ${!open &&
                 "opacity-0 translate-x-28 overflow-hidden font-bold text-lg"
-              }`}
+                }`}
             >
               {menu?.name}
             </h2>
             <h2
-              className={`${
-                open && "hidden"
-              } absolute left-48 bg-white font-bold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit  `}
+              className={`${open && "hidden"
+                } absolute left-48 bg-white font-bold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit  `}
             >
               {menu?.name}
             </h2>

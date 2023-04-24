@@ -4,12 +4,14 @@ import RightNav from './RightNav'
 import ComplaintsList from './ComplaintsList'
 import Complaint from './Complaint'
 import Statistics from './Statistics'
+import Profile from './Profile'
 
 const DeptPage = () => {
   // get the data from the local storage
   const user = JSON.parse(localStorage.getItem('loginData'))
   const [resolvedComplaints, setResolvedComplaints] = useState([])
   const [unresolvedComplaints, setUnresolvedComplaints] = useState([])
+  const [profile, setprofile] = useState(false);
   const [activeComplaint, setActiveComplaint] = useState(false);
   const [statistics, setStatistics] = useState(false);
   const [res, onRes] = useState(false)
@@ -46,12 +48,14 @@ const DeptPage = () => {
     onUnres(false)
     setActiveComplaint(false)
     setStatistics(false)
+    setprofile(false)
   }
   const handleUnres = () => {
     onRes(false)
     onUnres(true)
     setActiveComplaint(false)
     setStatistics(false)
+    setprofile(false)
   }
 
 
@@ -61,6 +65,7 @@ const DeptPage = () => {
     onRes(false)
     onUnres(false)
     setStatistics(false)
+    setprofile(false)
   };
 
   const handleStatistics = () => {
@@ -68,8 +73,16 @@ const DeptPage = () => {
     setActiveComplaint(false)
     onRes(false)
     onUnres(false)
+    setprofile(false)
   }
+  const handleprofile = () => {
+    setStatistics(false)
+    setActiveComplaint(false)
+    onRes(false)
+    onUnres(false)
+    setprofile(true)
 
+  }
   let data = [
     ["Complaints", "No.of Complaints"],
   ];
@@ -91,6 +104,7 @@ const DeptPage = () => {
             handleRes={handleRes}
             handleUnres={handleUnres}
             handleStatistics={handleStatistics}
+            handleprofile={handleprofile}
           />
         </section>
       </Grid>
@@ -99,7 +113,10 @@ const DeptPage = () => {
         {res && <ComplaintsList complaints={resolvedComplaints} handleComplaintClick={handleComplaintClick} />}
         {unres && <ComplaintsList complaints={unresolvedComplaints} handleComplaintClick={handleComplaintClick} />}
         {statistics && <Statistics department={user.department} district={user.district} data={data} options={options} />}
+        {profile && (
+          <Profile />
 
+        )}
       </Grid>
 
 
