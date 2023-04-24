@@ -20,7 +20,7 @@ function CreateMail() {
     const getComplaints = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5001/complaints/draftComplaints`,
+          `https://mydemocracyserver.onrender.com/complaints/draftComplaints`,
           {
             method: "GET",
             headers: {
@@ -32,7 +32,7 @@ function CreateMail() {
         const data = await response.json();
         console.log(data);
         if (data.status === 201) {
-          const comp = data.complaints.map((complaint) => { 
+          const comp = data.complaints.map((complaint) => {
             return {
               _id: complaint._id,
               id: complaint.complaintId,
@@ -87,7 +87,7 @@ function CreateMail() {
       // delete from database
       try {
         const response = await fetch(
-          `http://localhost:5001/complaints/${ComplaintId}`,
+          `https://mydemocracyserver.onrender.com/complaints/${ComplaintId}`,
           {
             method: "DELETE",
             headers: {

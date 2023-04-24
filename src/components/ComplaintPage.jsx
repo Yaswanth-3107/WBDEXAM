@@ -7,7 +7,7 @@ import Profile from "./Profile";
 import { LoginContext } from "./ContextProvider/Context";
 
 const ComplaintPage = () => {
-  const {logindata, setLoginData} = useContext(LoginContext);
+  const { logindata, setLoginData } = useContext(LoginContext);
   console.log(logindata, " from complaint page");
   const [resolvedComplaints, setResolvedComplaints] = useState([]);
   const [unresolvedComplaints, setUnresolvedComplaints] = useState([]);
@@ -17,7 +17,7 @@ const ComplaintPage = () => {
     const fetchComplaints = async () => {
       console.log("fetch is called")
       const response = await fetch(
-        "http://localhost:5001/complaints/sentComplaints",
+        "https://mydemocracyserver.onrender.com/complaints/sentComplaints",
         {
           method: "GET",
           headers: {
@@ -38,9 +38,9 @@ const ComplaintPage = () => {
 
     };
     const fetchMessages = async () => {
-      
+
       const response = await fetch(
-        "http://localhost:5001/messages/sentMessages",
+        "https://mydemocracyserver.onrender.com/messages/sentMessages",
         {
           method: "GET",
           headers: {
@@ -53,7 +53,7 @@ const ComplaintPage = () => {
       setSentMessages(data);
 
       const response2 = await fetch(
-        "http://localhost:5001/messages/gotMessages",
+        "https://mydemocracyserver.onrender.com/messages/gotMessages",
         {
           method: "GET",
           headers: {
@@ -74,7 +74,7 @@ const ComplaintPage = () => {
   const [onInbox, setOnInbox] = useState(true);
   const [onSent, setOnSent] = useState(false);
   const [got, setGot] = useState(false);
-  const[profile,setprofile]=useState(false);
+  const [profile, setprofile] = useState(false);
   const [res, onRes] = useState(false);
 
   const clickOnInbox = () => {
@@ -101,7 +101,7 @@ const ComplaintPage = () => {
     setprofile(false);
     onRes(false)
   };
-  const clickOnprofile =()=>{
+  const clickOnprofile = () => {
     setOnInbox(false);
     setActiveComplaint(false);
     setOnSent(false);
@@ -125,9 +125,9 @@ const ComplaintPage = () => {
   const [activeComplaint, setActiveComplaint] = useState(false);
 
   const resolveComplaint = async (id) => {
-    console.log("jjjfjfj",id)
+    console.log("jjjfjfj", id)
     const response = await fetch(
-      `http://localhost:5001/complaints/resolveComplaint/${id}`,
+      `https://mydemocracyserver.onrender.com/complaints/resolveComplaint/${id}`,
       {
         method: "PUT",
         headers: {
@@ -144,9 +144,9 @@ const ComplaintPage = () => {
     );
     // set the resolved complaints to the new list
     setResolvedComplaints([...resolvedComplaints, data.savedComplaint]);
-   
+
     alert("Complaint resolved");
-    
+
   };
 
 
@@ -178,7 +178,7 @@ const ComplaintPage = () => {
         </section>
       </Grid>
       <Grid item xs={9}>
-        {activeComplaint && <Complaint activeComplaint={activeComplaint} resolveComplaint={resolveComplaint}/>}
+        {activeComplaint && <Complaint activeComplaint={activeComplaint} resolveComplaint={resolveComplaint} />}
 
         {onInbox && (
           <ComplaintsList
@@ -199,7 +199,7 @@ const ComplaintPage = () => {
           />
         )}
         {profile && (
-          <Profile/>
+          <Profile />
 
         )}
       </Grid>

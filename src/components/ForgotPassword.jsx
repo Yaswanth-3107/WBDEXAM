@@ -6,7 +6,7 @@ const ForgotPassword = () => {
   const { id, token } = useParams();
   const userValid = async () => {
     const res = await fetch(
-      `http://localhost:5001/forgotpassword/${id}/${token}`,
+      `https://mydemocracyserver.onrender.com/forgotpassword/${id}/${token}`,
       {
         method: "GET",
         headers: {
@@ -33,7 +33,7 @@ const ForgotPassword = () => {
   const sendPassword = async (e) => {
     e.preventDefault();
 
-    const res = await fetch(`http://localhost:5001/lg/${id}/${token}`, {
+    const res = await fetch(`https://mydemocracyserver.onrender.com/lg/${id}/${token}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
