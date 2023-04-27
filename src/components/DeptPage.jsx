@@ -18,7 +18,7 @@ const DeptPage = () => {
   const [unres, onUnres] = useState(true)
   useEffect(() => {
     //get all the complaints which are send to this user department
-    fetch(`https://mydemocracyserver.onrender.com/complaints/deptComplaints`, {
+    fetch(`https://myserverdemocracy.onrender.com/complaints/deptComplaints`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

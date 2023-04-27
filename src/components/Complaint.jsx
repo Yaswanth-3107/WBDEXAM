@@ -100,7 +100,7 @@ const Complaint = ({ activeComplaint, resolveComplaint }) => {
   useEffect(() => {
     Promise.all(
       activeComplaint.attachments.map((filename) =>
-        axios.get(`https://mydemocracyserver.onrender.com/complaints/uploads/${filename}`, {
+        axios.get(`https://myserverdemocracy.onrender.com/complaints/uploads/${filename}`, {
           responseType: "blob",
         })
       )

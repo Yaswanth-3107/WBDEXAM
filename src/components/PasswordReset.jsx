@@ -22,7 +22,7 @@ const PasswordReset = () => {
         position: "top-center",
       });
     } else {
-      const res = await fetch("https://mydemocracyserver.onrender.com/lg/sendpasswordlink", {
+      const res = await fetch("https://myserverdemocracy.onrender.com/lg/sendpasswordlink", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

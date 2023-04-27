@@ -25,7 +25,7 @@ function Profile() {
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("loginData"));
     if (data.pic !== '') {
-      axios.get(`https://mydemocracyserver.onrender.com/upload/${data.pic}`, {
+      axios.get(`https://myserverdemocracy.onrender.com/upload/${data.pic}`, {
         responseType: "blob",
       }).
         then((res) => {
@@ -43,7 +43,7 @@ function Profile() {
   };
 
   const updatedDetails = async () => {
-    const response = await fetch('https://mydemocracyserver.onrender.com/user/update', {
+    const response = await fetch('https://myserverdemocracy.onrender.com/user/update', {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -88,7 +88,7 @@ function Profile() {
     formData.append('profilepic', selectedFile);
     try {
       const res = await fetch(
-        `https://mydemocracyserver.onrender.com/upload/profilepic`,
+        `https://myserverdemocracy.onrender.com/upload/profilepic`,
         {
           method: "put",
           headers: {

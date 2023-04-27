@@ -17,7 +17,7 @@ const ComplaintPage = () => {
     const fetchComplaints = async () => {
       console.log("fetch is called")
       const response = await fetch(
-        "https://mydemocracyserver.onrender.com/complaints/sentComplaints",
+        "https://myserverdemocracy.onrender.com/complaints/sentComplaints",
         {
           method: "GET",
           headers: {
@@ -40,7 +40,7 @@ const ComplaintPage = () => {
     const fetchMessages = async () => {
 
       const response = await fetch(
-        "https://mydemocracyserver.onrender.com/messages/sentMessages",
+        "https://myserverdemocracy.onrender.com/messages/sentMessages",
         {
           method: "GET",
           headers: {
@@ -53,7 +53,7 @@ const ComplaintPage = () => {
       setSentMessages(data);
 
       const response2 = await fetch(
-        "https://mydemocracyserver.onrender.com/messages/gotMessages",
+        "https://myserverdemocracy.onrender.com/messages/gotMessages",
         {
           method: "GET",
           headers: {
@@ -127,7 +127,7 @@ const ComplaintPage = () => {
   const resolveComplaint = async (id) => {
     console.log("jjjfjfj", id)
     const response = await fetch(
-      `https://mydemocracyserver.onrender.com/complaints/resolveComplaint/${id}`,
+      `https://myserverdemocracy.onrender.com/complaints/resolveComplaint/${id}`,
       {
         method: "PUT",
         headers: {

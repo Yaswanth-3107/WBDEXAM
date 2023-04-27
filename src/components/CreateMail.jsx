@@ -20,7 +20,7 @@ function CreateMail() {
     const getComplaints = async () => {
       try {
         const response = await fetch(
-          `https://mydemocracyserver.onrender.com/complaints/draftComplaints`,
+          `https://myserverdemocracy.onrender.com/complaints/draftComplaints`,
           {
             method: "GET",
             headers: {
@@ -87,7 +87,7 @@ function CreateMail() {
       // delete from database
       try {
         const response = await fetch(
-          `https://mydemocracyserver.onrender.com/complaints/${ComplaintId}`,
+          `https://myserverdemocracy.onrender.com/complaints/${ComplaintId}`,
           {
             method: "DELETE",
             headers: {

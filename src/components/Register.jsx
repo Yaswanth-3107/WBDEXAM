@@ -63,7 +63,7 @@ const Register = () => {
     } else {
       // console.log("User registration succesfully done");
 
-      const data = await fetch("https://mydemocracyserver.onrender.com/lg/register", {
+      const data = await fetch("https://myserverdemocracy.onrender.com/lg/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

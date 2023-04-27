@@ -53,7 +53,7 @@ const Login = () => {
       alert("Password must be 8 char");
     } else {
       // console.log("user login succesfully");
-      const data = await fetch("https://mydemocracyserver.onrender.com/lg/login", {
+      const data = await fetch("https://myserverdemocracy.onrender.com/lg/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

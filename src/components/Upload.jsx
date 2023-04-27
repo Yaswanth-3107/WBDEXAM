@@ -11,7 +11,7 @@ const Upload = () => {
 
     data.append("image", img1.current.files[0]);
     axios
-      .post("https://mydemocracyserver.onrender.com/upload", {
+      .post("https://myserverdemocracy.onrender.com/upload", {
         headers: {
           "Content-Type": "multipart/form-data",
         },

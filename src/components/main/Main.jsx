@@ -47,7 +47,7 @@ const Main = ({ activeComplaint, onUpdateComplaint, removeFromSidebar }) => {
     const getAdmins = async () => {
       try {
         const response = await fetch(
-          `https://mydemocracyserver.onrender.com/admins/${userContext.logindata.district}`,
+          `https://myserverdemocracy.onrender.com/admins/${userContext.logindata.district}`,
           {
             method: "GET",
             headers: {
@@ -133,7 +133,7 @@ const Main = ({ activeComplaint, onUpdateComplaint, removeFromSidebar }) => {
 
       if (complaint.status === "draft") {
         const response = await fetch(
-          `https://mydemocracyserver.onrender.com/complaints/draft/${complaint?._id}`,
+          `https://myserverdemocracy.onrender.com/complaints/draft/${complaint?._id}`,
           {
             method: "PUT",
             headers: {
@@ -170,7 +170,7 @@ const Main = ({ activeComplaint, onUpdateComplaint, removeFromSidebar }) => {
         }
       } else {
         console.log(complaint);
-        const response = await fetch(`https://mydemocracyserver.onrender.com/complaints/draft`, {
+        const response = await fetch(`https://myserverdemocracy.onrender.com/complaints/draft`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -238,7 +238,7 @@ const Main = ({ activeComplaint, onUpdateComplaint, removeFromSidebar }) => {
     if (activeComplaint.status === "draft") {
       try {
         const response = await fetch(
-          `https://mydemocracyserver.onrender.com/complaints/send/${activeComplaint?._id}`,
+          `https://myserverdemocracy.onrender.com/complaints/send/${activeComplaint?._id}`,
           {
             method: "put",
             headers: {
@@ -259,7 +259,7 @@ const Main = ({ activeComplaint, onUpdateComplaint, removeFromSidebar }) => {
       }
     } else {
       try {
-        const response = await fetch(`https://mydemocracyserver.onrender.com/complaints/send`, {
+        const response = await fetch(`https://myserverdemocracy.onrender.com/complaints/send`, {
           method: "POST",
           headers: {
             authorization: `Bearer ${localStorage.getItem("token")}`,
